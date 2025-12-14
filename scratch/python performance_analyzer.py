@@ -5,7 +5,7 @@ from datetime import datetime
 
 # Configure logging
 logging.basicConfig(
-    filename='system_performance.log',
+    filename='../system_performance.log',
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )

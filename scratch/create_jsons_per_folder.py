@@ -1,43 +1,50 @@
-import os
 import json
 from pathlib import Path
+from tkinter import Tk, filedialog
 
-# --- 📂 Base directory to scan ---
-BASE_DIR = Path(r"C:\Users\wsd3\Zotero\obsidian\river_terminals\Port Sulphur\3.0_Notes")
+# File types to include
+TEXT_EXTENSIONS = {".md", ".txt", ".html", ".htm", ".rst"}
 
-def folder_to_json(folder: Path):
-    """
-    Create a JSON file inside a 'json' subfolder of the given folder,
-    containing all files (including subfolders) with metadata.
-    """
-    metadata = []
+def select_folder():
+    Tk().withdraw()
+    return filedialog.askdirectory(title="Select folder to package")
 
-    for root, _, files in os.walk(folder):
-        for file in files:
-            p = Path(root) / file
-            metadata.append({
-                "file_name": file,
-                "relative_path": str(p.relative_to(folder)),
-                "absolute_path": str(p),
-                "extension": p.suffix,
-                "size_bytes": p.stat().st_size
-            })
+def collect_text_files(folder_path):
+    folder = Path(folder_path)
+    files = list(folder.rglob("*"))
+    return [f for f in files if f.suffix.lower() in TEXT_EXTENSIONS and f.is_file()]
 
-    # Make "json" subfolder inside this folder
-    json_dir = folder / "json"
-    json_dir.mkdir(exist_ok=True)
-
-    # Save JSON inside the json subfolder
-    output_path = json_dir / f"{folder.name}_index.json"
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(metadata, f, indent=2)
-
-    print(f"✅ JSON created: {output_path} ({len(metadata)} files)")
+def create_jsonl(file_paths, output_path):
+    with open(output_path, "w", encoding="utf-8") as out_file:
+        for path in file_paths:
+            try:
+                content = path.read_text(encoding="utf-8", errors="ignore").strip()
+                if content:
+                    record = {
+                        "path": str(path.relative_to(output_path.parent)),
+                        "content": content
+                    }
+                    out_file.write(json.dumps(record, ensure_ascii=False) + "\n")
+                    print(f"[✓] Packed: {record['path']}")
+                else:
+                    print(f"[!] Empty: {path.name}")
+            except Exception as e:
+                print(f"[ERROR] {path.name}: {e}")
 
 def main():
-    for item in BASE_DIR.iterdir():
-        if item.is_dir():  # Only process folders
-            folder_to_json(item)
+    folder = select_folder()
+    if not folder:
+        print("No folder selected. Exiting.")
+        return
+
+    text_files = collect_text_files(folder)
+    if not text_files:
+        print("No supported text files found.")
+        return
+
+    output_path = Path(folder) / "docs.jsonl"
+    create_jsonl(text_files, output_path)
+    print(f"\n✅ Done! JSONL saved to: {output_path}")
 
 if __name__ == "__main__":
     main()
