@@ -1,0 +1,37 @@
+# Data folders
+Input/
+Output/
+Dictionary/
+Processed/
+
+# Logs
+logs/
+*.log
+
+# Virtual environments
+.venv/
+.venv1/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# IDE
+.idea/
+
+# Windows
+desktop.ini
+Thumbs.db
+
+# Executables
+exe/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Scratch working files
+scratch/_checkpoint.json
+scratch/_error.log
+scratch/config.json
+scratch/logs/
