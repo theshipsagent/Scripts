@@ -1,0 +1,9 @@
+"C:\Users\wsd3\.virtualenvs\.venv\Scripts\python.exe" "C:\Users\wsd3\OneDrive\GRoK\Projects\Manifest\NOBOT\scripts\flush.py"
+
+
+"C:\Users\wsd3\.virtualenvs\.venv\Scripts\python.exe" "C:\Users\wsd3\OneDrive\GRoK\Projects\Manifest\NOBOT\scripts\flush.py" --browsers
+
+
+"C:\Users\wsd3\.virtualenvs\.venv\Scripts\python.exe" "C:\Users\wsd3\OneDrive\GRoK\Projects\Manifest\NOBOT\scripts\flush.py" --wipe C D
+
+

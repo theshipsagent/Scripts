@@ -1,0 +1,17 @@
+2025-08-04 12:47:48,092 - INFO - Starting system performance analysis
+2025-08-04 12:47:49,097 - INFO - CPU Usage: 22.9%
+2025-08-04 12:47:49,097 - INFO - Memory Used: 10555.49 MB / 16158.15 MB (65.3%)
+2025-08-04 12:49:50,353 - ERROR - Failed to terminate process 14304: process no longer exists (pid=14304)
+2025-08-04 12:49:53,571 - ERROR - Failed to terminate process 13704: process no longer exists (pid=13704)
+2025-08-04 12:52:52,185 - INFO - Starting system performance analysis
+2025-08-04 12:52:53,198 - INFO - CPU Usage: 15.5%
+2025-08-04 12:52:53,199 - INFO - Memory Used: 9783.76 MB / 16158.15 MB (60.5%)
+2025-08-04 14:13:54,091 - INFO - Starting system performance analysis
+2025-08-04 14:13:55,096 - INFO - CPU Usage: 15.0%
+2025-08-04 14:13:55,096 - INFO - Memory Used: 10594.84 MB / 16158.15 MB (65.6%)
+2025-08-04 14:15:55,030 - ERROR - Failed to terminate process 20156: process no longer exists (pid=20156)
+2025-08-04 14:15:57,551 - ERROR - Failed to terminate process 19232: process no longer exists (pid=19232)
+2025-08-04 14:16:18,760 - ERROR - Failed to terminate process 10088: process no longer exists (pid=10088)
+2025-08-04 16:46:43,702 - INFO - Starting system performance analysis
+2025-08-04 16:46:44,707 - INFO - CPU Usage: 23.0%
+2025-08-04 16:46:44,707 - INFO - Memory Used: 8341.46 MB / 16158.15 MB (51.6%)
